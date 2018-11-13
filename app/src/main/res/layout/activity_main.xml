@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.tagafriend.MainActivity">
+
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="139dp"
+        android:text="TagAFriend"
+        android:textAllCaps="true"
+        android:textColor="@color/colorPrimary"
+        android:textSize="30sp"
+        android:textStyle="bold" />
+
+
+    <Button
+        android:id="@+id/button_sign_in"
+        android:layout_width="200sp"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/button_sign_up"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="47dp"
+
+        android:onClick="Signin"
+        android:text="SIGN IN"
+        android:textColor="@color/colorPrimary" />
+
+    <Button
+        android:id="@+id/button_sign_up"
+        android:layout_width="200sp"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/button_sign_in"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="39dp"
+        android:onClick="Signup"
+        android:text="SIGN UP"
+        android:textColor="@color/colorPrimary" />
+</RelativeLayout>

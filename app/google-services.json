@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "142182490433",
+    "firebase_url": "https://tagafriend-95d52.firebaseio.com",
+    "project_id": "tagafriend-95d52",
+    "storage_bucket": "tagafriend-95d52.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:142182490433:android:025c20d12c46660f",
+        "android_client_info": {
+          "package_name": "com.tagafriend"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "142182490433-4flr8tm0j7qd2057v7k3tqnokvfei15f.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCYiBEecbUIKjFw_VcKEjV6XWb3BITEtOg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

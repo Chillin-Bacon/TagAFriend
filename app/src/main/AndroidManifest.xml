@@ -27,7 +27,9 @@
         </activity>
         <activity android:name=".SignInActivity" />
         <activity android:name=".SignUp" />
-        <activity android:name=".Main2Activity"></activity>
+        <activity android:name=".Main2Activity" />
+        <activity android:name=".DisplayMapActivity" />
+        <activity android:name=".ResetPasswordActivity"></activity>
     </application>
 
 </manifest>

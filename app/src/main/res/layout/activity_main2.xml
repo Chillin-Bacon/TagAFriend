@@ -11,9 +11,9 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="139dp"
+        android:layout_marginTop="30dp"
         android:text="THIS IS GOING TO BE THE DISPLAYMAP ACTIVITY"
         android:textAllCaps="true"
         android:textColor="@color/colorPrimary"
@@ -24,10 +24,55 @@
         android:id="@+id/displayMapsButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="192dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginBottom="321dp"
         android:text="Display Location" />
+
+    <Button
+        android:id="@+id/optionsButton"
+        android:layout_width="161dp"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/displayMapsButton"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="31dp"
+        android:text="Options" />
+
+    <Button
+        android:id="@+id/addFriendButton"
+        android:layout_width="149dp"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/displayMapsButton"
+        android:layout_centerVertical="true"
+        android:text="add friend" />
+
+    <Button
+        android:id="@+id/tagFriendButton"
+        android:layout_width="155dp"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/optionsButton"
+        android:layout_centerVertical="true"
+        android:text="tag friend" />
+
+    <Button
+        android:id="@+id/untagButton"
+        android:layout_width="146dp"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/displayMapsButton"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="135dp"
+        android:text="untag me" />
+
+    <Button
+        android:id="@+id/checkedIfTagged"
+        android:layout_width="152dp"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/optionsButton"
+        android:layout_alignTop="@+id/untagButton"
+        android:layout_marginTop="0dp"
+        android:text="aim i tagged?" />
 
 
 </RelativeLayout>

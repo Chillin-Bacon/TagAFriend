@@ -20,7 +20,7 @@ import static android.Manifest.permission.ACCESS_FINE_LOCATION;
 
 public class Main2Activity extends AppCompatActivity {
 
-    private Button mapsActivityButton;
+    private Button mapsActivityButton, optionsActivityButton;
 
     public FusedLocationProviderClient client;
 
@@ -30,6 +30,7 @@ public class Main2Activity extends AppCompatActivity {
         setContentView(R.layout.activity_main2);
 
         mapsActivityButton = findViewById(R.id.displayMapsButton);
+        optionsActivityButton = findViewById(R.id.optionsButton);
         client = LocationServices.getFusedLocationProviderClient(this);
         mapsActivityButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -38,8 +39,21 @@ public class Main2Activity extends AppCompatActivity {
                 // startActivity(intent);
 
 
-                            Intent intent=new Intent(getApplicationContext(),DisplayMapActivity.class);
-                            startActivity(intent);
+                Intent intent=new Intent(getApplicationContext(),DisplayMapActivity.class);
+                startActivity(intent);
+
+            }
+        });
+
+        optionsActivityButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                // Code here executes on main thread after user presses button
+                // Intent intent=new Intent(getApplicationContext(),SignInActivity.class);
+                // startActivity(intent);
+
+
+                Intent intent = new Intent(getApplicationContext(),OptionsActivity.class);
+                startActivity(intent);
 
             }
         });

@@ -39,6 +39,7 @@
         <activity android:name=".ResetPasswordActivity" />
         <activity android:name=".DisplayMapActivity2" />
         <activity android:name=".OptionsActivity"></activity>
+        <activity android:name=".AddToDatabase"></activity>
     </application>
 
 </manifest>

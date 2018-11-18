@@ -33,10 +33,10 @@ public class SignUp extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
         mAuth = FirebaseAuth.getInstance();
-        nameField=(EditText)findViewById(R.id.field_name);
-        emailField=(EditText)findViewById(R.id.field_email);
-        passField=(EditText)findViewById(R.id.field_password);
-        confirmPass=(EditText)findViewById(R.id.field_password_confirmation);
+        nameField= findViewById(R.id.field_name);
+        emailField= findViewById(R.id.field_email);
+        passField= findViewById(R.id.field_password);
+        confirmPass= findViewById(R.id.field_password_confirmation);
         myRef=FirebaseDatabase.getInstance().getReference().child("Users");
     }
 

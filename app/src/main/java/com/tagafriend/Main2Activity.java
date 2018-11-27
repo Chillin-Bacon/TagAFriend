@@ -20,7 +20,12 @@ import static android.Manifest.permission.ACCESS_FINE_LOCATION;
 
 public class Main2Activity extends AppCompatActivity {
 
-    private Button mapsActivityButton, optionsActivityButton, btnAddToDatabase;
+    private Button mapsActivityButton,
+            optionsActivityButton,
+            btnAddToDatabase,
+            btnAddFriendtoDB,
+            btngetCurrentFriends,
+            btnTagFriend;
 
     public FusedLocationProviderClient client;
 
@@ -32,6 +37,9 @@ public class Main2Activity extends AppCompatActivity {
         mapsActivityButton = findViewById(R.id.displayMapsButton);
         optionsActivityButton = findViewById(R.id.optionsButton);
         btnAddToDatabase = findViewById(R.id.testButton);
+        btnAddFriendtoDB = findViewById(R.id.addFriendButton);
+        btngetCurrentFriends = findViewById(R.id.currentFriends);
+        btnTagFriend = findViewById(R.id.tagFriendButton);
         client = LocationServices.getFusedLocationProviderClient(this);
         mapsActivityButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -67,6 +75,46 @@ public class Main2Activity extends AppCompatActivity {
 
 
                 Intent intent = new Intent(getApplicationContext(),AddToDatabase.class);
+                startActivity(intent);
+
+            }
+        });
+
+        btnAddFriendtoDB.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                // Code here executes on main thread after user presses button
+                // Intent intent=new Intent(getApplicationContext(),SignInActivity.class);
+                // startActivity(intent);
+
+
+                Intent intent = new Intent(getApplicationContext(),AddFriendToDB.class);
+                startActivity(intent);
+
+            }
+        });
+
+
+        btngetCurrentFriends.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                // Code here executes on main thread after user presses button
+                // Intent intent=new Intent(getApplicationContext(),SignInActivity.class);
+                // startActivity(intent);
+
+
+                Intent intent = new Intent(getApplicationContext(),GetCurrentFriends.class);
+                startActivity(intent);
+
+            }
+        });
+
+        btnTagFriend.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                // Code here executes on main thread after user presses button
+                // Intent intent=new Intent(getApplicationContext(),SignInActivity.class);
+                // startActivity(intent);
+
+
+                Intent intent = new Intent(getApplicationContext(),TagFriendActivity.class);
                 startActivity(intent);
 
             }

@@ -1,14 +1,16 @@
 package com.tagafriend;
 
-import android.os.Bundle;
-import android.provider.SyncStateContract;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -20,17 +22,14 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
-import java.util.List;
-import java.util.Vector;
 
+public class GetCurrentFriends extends AppCompatActivity {
 
-public class AddToDatabase extends AppCompatActivity {
-
-    private static final String TAG = "AddToDatabase";
+    private static final String TAG = "GetCurrentFriendsFromDB";
 
     private Button mAddToDB;
 
-    private EditText mNewFood, mFriendToBeAdded;
+    private EditText mFriendToBeAdded;
 
     //add Firebase Database stuff
     private FirebaseDatabase mFirebaseDatabase;
@@ -42,14 +41,17 @@ public class AddToDatabase extends AppCompatActivity {
 
     private Button viewFriendsFromDB;
 
+    TextView friendsListTextView;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.add_to_database_layout);
+        setContentView(R.layout.activity_get_current_friends);
         //declare variables in oncreate
         mAddToDB = (Button) findViewById(R.id.btnAddNewFood);
         addNewFriendsToDB = (Button) findViewById(R.id.addFriendToDB);
-        viewFriendsFromDB = (Button) findViewById(R.id.viewFriendsButton);
+        viewFriendsFromDB = (Button) findViewById(R.id.viewFriendsListButton);
+        friendsListTextView = (TextView) findViewById(R.id.friendListTextView);
 
         //declare the database reference object. This is what we use to access the database.
         //NOTE: Unless you are signed in, this will not be useable.
@@ -60,6 +62,10 @@ public class AddToDatabase extends AppCompatActivity {
         final DatabaseReference tripsReference = myRef.child("friends");
 
         mFriendToBeAdded = (EditText) findViewById(R.id.addFriendEditText);
+
+        // String joinedFriendList;
+
+        // ArrayAdapter<String> friendsAdapter = new ArrayAdapter<String>(this, android.R.layout.get)
 
 
 
@@ -86,23 +92,23 @@ public class AddToDatabase extends AppCompatActivity {
         final ArrayList<String> friendsList = new ArrayList<> ();
 
         // Read from the database
-        myRef.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                // This method is called once with the initial value and again
-                // whenever data at this location is updated.
-                Object value = dataSnapshot.getValue();
-
-                Log.d(TAG, "Value is: " + value);
-
-            }
-
-            @Override
-            public void onCancelled(DatabaseError error) {
-                // Failed to read value
-                Log.w(TAG, "Failed to read value.", error.toException());
-            }
-        });
+        // myRef.addValueEventListener(new ValueEventListener() {
+        //     @Override
+        //     public void onDataChange(DataSnapshot dataSnapshot) {
+        //         // This method is called once with the initial value and again
+        //         // whenever data at this location is updated.
+        //         Object value = dataSnapshot.getValue();
+        //
+        //         Log.d(TAG, "Value is: " + value);
+        //
+        //     }
+        //
+        //     @Override
+        //     public void onCancelled(DatabaseError error) {
+        //         // Failed to read value
+        //         Log.w(TAG, "Failed to read value.", error.toException());
+        //     }
+        // });
 
         FirebaseUser user = mAuth.getCurrentUser();
         String userId = user.getUid();
@@ -114,22 +120,27 @@ public class AddToDatabase extends AppCompatActivity {
                 // whenever data at this location is updated.
                 Object value = dataSnapshot.getValue();
 
-                Log.d(TAG, "Value is: " + value);
+                // Log.d(TAG, "Value is: " + value);
+                //
+                // Log.d(TAG, "Value is: " + (dataSnapshot.getValue()).toString());
 
-                Log.d(TAG, "Value is: " + (dataSnapshot.getValue()).toString());
-
-                String dataView = dataSnapshot.getValue().toString();
-
-                dataSnapshot.getKey();
-
-                String friendID = "12345";
-
-                Log.d(TAG, "User friend elements are: " + dataSnapshot.getValue());
+                // String dataView = dataSnapshot.getValue().toString();
+                //
+                // dataSnapshot.getKey();
+                //
+                // String friendID = "12345";
+                //
+                // Log.d(TAG, "User friend elements are: " + dataSnapshot.getValue());
 
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     String key = snapshot.getKey();
+                    friendsList.add(key);
                     Log.d(TAG, "THE KEYS OF THE USER ARE: " + key);
                 }
+
+                String joinedFriendList = TextUtils.join(", ", friendsList);
+                friendsListTextView.setText(joinedFriendList);
+
 
                 // for (int i = 0; i < list.size(); ++i) {
                 //     Log.d(TAG, "String contains ID is: " + list.get(i));
@@ -152,45 +163,45 @@ public class AddToDatabase extends AppCompatActivity {
             }
         });
 
-        mAddToDB.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // Log.d(TAG, "onClick: Attempting to add object to database.");
-                // String newFood = mNewFood.getText().toString();
-                // if(!newFood.equals("")){
-                    FirebaseUser user = mAuth.getCurrentUser();
-                    String userID = user.getUid();
-                    toastMessage("User ID IS " + userID);
-                    writeNewUser(userID, user.getDisplayName(), user.getEmail());
-                //     myRef.child(userID).child("Food").child(newFood).setValue("true");
-                //     // toastMessage("Adding " + newFood + " to database...");
-                //     //reset the text
-                //     mNewFood.setText("");
-                }
-
-        });
-
-        addNewFriendsToDB.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // Log.d(TAG, "onClick: Attempting to add object to database.");
-                // String newFood = mNewFood.getText().toString();
-                // if(!newFood.equals("")){
-                // FirebaseUser user = mAuth.getCurrentUser();
-                // String userID = user.getUid();
-                FirebaseUser user = mAuth.getCurrentUser();
-                String userID = user.getUid();
-
-                toastMessage("NEW FRIEND ID IS" + mFriendToBeAdded.getText().toString());
-                addNewFriend(userID, mFriendToBeAdded.getText().toString());
-                // writeNewUser(userID, user.getDisplayName(), user.getEmail());
-                //     myRef.child(userID).child("Food").child(newFood).setValue("true");
-                //     // toastMessage("Adding " + newFood + " to database...");
-                //     //reset the text
-                //     mNewFood.setText("");
-            }
-
-        });
+        // mAddToDB.setOnClickListener(new View.OnClickListener() {
+        //     @Override
+        //     public void onClick(View view) {
+        //         // Log.d(TAG, "onClick: Attempting to add object to database.");
+        //         // String newFood = mNewFood.getText().toString();
+        //         // if(!newFood.equals("")){
+        //         FirebaseUser user = mAuth.getCurrentUser();
+        //         String userID = user.getUid();
+        //         toastMessage("User ID IS " + userID);
+        //         writeNewUser(userID, user.getDisplayName(), user.getEmail());
+        //         //     myRef.child(userID).child("Food").child(newFood).setValue("true");
+        //         //     // toastMessage("Adding " + newFood + " to database...");
+        //         //     //reset the text
+        //         //     mNewFood.setText("");
+        //     }
+        //
+        // });
+        //
+        // addNewFriendsToDB.setOnClickListener(new View.OnClickListener() {
+        //     @Override
+        //     public void onClick(View view) {
+        //         // Log.d(TAG, "onClick: Attempting to add object to database.");
+        //         // String newFood = mNewFood.getText().toString();
+        //         // if(!newFood.equals("")){
+        //         // FirebaseUser user = mAuth.getCurrentUser();
+        //         // String userID = user.getUid();
+        //         FirebaseUser user = mAuth.getCurrentUser();
+        //         String userID = user.getUid();
+        //
+        //         toastMessage("NEW FRIEND ID IS" + mFriendToBeAdded.getText().toString());
+        //         addNewFriend(userID, mFriendToBeAdded.getText().toString());
+        //         // writeNewUser(userID, user.getDisplayName(), user.getEmail());
+        //         //     myRef.child(userID).child("Food").child(newFood).setValue("true");
+        //         //     // toastMessage("Adding " + newFood + " to database...");
+        //         //     //reset the text
+        //         //     mNewFood.setText("");
+        //     }
+        //
+        // });
 
         viewFriendsFromDB.setOnClickListener(new View.OnClickListener() {
             @Override

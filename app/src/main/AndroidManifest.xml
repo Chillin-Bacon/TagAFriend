@@ -38,8 +38,11 @@
         <activity android:name=".DisplayMapActivity" />
         <activity android:name=".ResetPasswordActivity" />
         <activity android:name=".DisplayMapActivity2" />
-        <activity android:name=".OptionsActivity"></activity>
-        <activity android:name=".AddToDatabase"></activity>
+        <activity android:name=".OptionsActivity" />
+        <activity android:name=".AddToDatabase" />
+        <activity android:name=".AddFriendToDB" />
+        <activity android:name=".GetCurrentFriends" />
+        <activity android:name=".TagFriendActivity"></activity>
     </application>
 
 </manifest>

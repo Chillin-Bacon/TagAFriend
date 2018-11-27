@@ -4,23 +4,45 @@
     android:layout_height="match_parent">
 
     <Button
+        android:id="@+id/addFriendToDB"
+        android:layout_width="236dp"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/btnAddNewFood"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="-5dp"
+        android:layout_marginBottom="276dp"
+        android:text="addAFriend" />
+
+    <Button
         android:id="@+id/btnAddNewFood"
         android:layout_width="236dp"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
+        android:layout_alignStart="@+id/add_new_food"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="24dp"
         android:text="Button" />
 
     <EditText
-        android:id="@+id/add_new_food"
+        android:id="@+id/addFriendEditText"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="161dp"
+        android:layout_marginStart="17dp"
+        android:layout_marginTop="108dp"
         android:ems="10"
-        android:hint="Enter a Food"
-        android:inputType="textPersonName"
-        android:text="Name" />
+        android:hint="Enter Friend Code"
+        android:inputType="textPersonName" />
+
+    <Button
+        android:id="@+id/viewFriendsButton"
+        android:layout_width="241dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="30dp"
+        android:layout_marginBottom="202dp"
+        android:text="viewfriend" />
 
 </RelativeLayout>

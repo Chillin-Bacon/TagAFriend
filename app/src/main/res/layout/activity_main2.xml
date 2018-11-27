@@ -7,6 +7,16 @@
     tools:context="com.tagafriend.Main2Activity">
 
 
+    <Button
+        android:id="@+id/currentFriends"
+        android:layout_width="152dp"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/optionsButton"
+        android:layout_alignTop="@+id/untagButton"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="-65dp"
+        android:text="Current Friends" />
+
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
@@ -26,8 +36,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="15dp"
-        android:layout_marginBottom="321dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="346dp"
         android:text="Display Location" />
 
     <Button
@@ -44,8 +54,10 @@
         android:id="@+id/addFriendButton"
         android:layout_width="149dp"
         android:layout_height="wrap_content"
+        android:layout_above="@+id/tagFriendButton"
         android:layout_alignStart="@+id/displayMapsButton"
-        android:layout_centerVertical="true"
+        android:layout_marginStart="2dp"
+        android:layout_marginBottom="25dp"
         android:text="add friend" />
 
     <Button
@@ -53,12 +65,14 @@
         android:layout_width="155dp"
         android:layout_height="wrap_content"
         android:layout_alignStart="@+id/optionsButton"
-        android:layout_centerVertical="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="-186dp"
+        android:layout_marginBottom="204dp"
         android:text="tag friend" />
 
     <Button
         android:id="@+id/untagButton"
-        android:layout_width="146dp"
+        android:layout_width="159dp"
         android:layout_height="wrap_content"
         android:layout_alignStart="@+id/displayMapsButton"
         android:layout_alignParentBottom="true"
@@ -71,16 +85,18 @@
         android:layout_height="wrap_content"
         android:layout_alignStart="@+id/optionsButton"
         android:layout_alignTop="@+id/untagButton"
-        android:layout_marginTop="0dp"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="-138dp"
         android:text="aim i tagged?" />
 
     <Button
         android:id="@+id/testButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="47dp"
+        android:layout_marginEnd="53dp"
+        android:layout_marginBottom="133dp"
         android:text="ADD ITEM TO DB" />
 
 

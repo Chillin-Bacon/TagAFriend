@@ -25,7 +25,9 @@ public class Main2Activity extends AppCompatActivity {
             btnAddToDatabase,
             btnAddFriendtoDB,
             btngetCurrentFriends,
-            btnTagFriend;
+            btnTagFriend,
+            btnUnTagFriend,
+            btnAmITagged;
 
     public FusedLocationProviderClient client;
 
@@ -40,6 +42,8 @@ public class Main2Activity extends AppCompatActivity {
         btnAddFriendtoDB = findViewById(R.id.addFriendButton);
         btngetCurrentFriends = findViewById(R.id.currentFriends);
         btnTagFriend = findViewById(R.id.tagFriendButton);
+        btnUnTagFriend = findViewById(R.id.untagButton);
+        btnAmITagged = findViewById(R.id.checkedIfTagged);
         client = LocationServices.getFusedLocationProviderClient(this);
         mapsActivityButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -119,6 +123,20 @@ public class Main2Activity extends AppCompatActivity {
 
             }
         });
+
+        btnUnTagFriend.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                // Code here executes on main thread after user presses button
+                // Intent intent=new Intent(getApplicationContext(),SignInActivity.class);
+                // startActivity(intent);
+
+
+                Intent intent = new Intent(getApplicationContext(),UnTagMeActivity.class);
+                startActivity(intent);
+
+            }
+        });
+        
     }
 
 }

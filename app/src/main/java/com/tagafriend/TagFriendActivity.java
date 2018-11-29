@@ -25,6 +25,7 @@ import java.util.ArrayList;
 public class TagFriendActivity extends AppCompatActivity {
 
     private static final String TAG = "GetCurrentFriendsFromDB";
+    private static final String TAG2 = "FriendsThatAreTagged";
 
     private Button tagFriendButton;
 
@@ -40,9 +41,12 @@ public class TagFriendActivity extends AppCompatActivity {
 
     private Button viewFriendsFromDB;
 
+    Button tagMyselfButton;
+
     EditText friendToBeTagged;
 
     final ArrayList<String> friendsList = new ArrayList<> ();
+    final ArrayList<String> taggedFriendsList = new ArrayList<>();
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -50,6 +54,7 @@ public class TagFriendActivity extends AppCompatActivity {
         setContentView(R.layout.activity_tag_friend);
         //declare variables in oncreate
         tagFriendButton = (Button) findViewById(R.id.tagFriendButtonInTagActivity);
+        tagMyselfButton = (Button) findViewById(R.id.tagMyselfButton);
         friendToBeTagged = (EditText) findViewById(R.id.taggedFriendCode);
 
         //declare the database reference object. This is what we use to access the database.
@@ -59,6 +64,7 @@ public class TagFriendActivity extends AppCompatActivity {
         myRef = mFirebaseDatabase.getReference();
 
         final DatabaseReference tripsReference = myRef.child("friends");
+        final DatabaseReference taggedReference = myRef.child("isTagged");
 
         mFriendToBeAdded = (EditText) findViewById(R.id.addFriendEditText);
 
@@ -92,6 +98,24 @@ public class TagFriendActivity extends AppCompatActivity {
         FirebaseUser user = mAuth.getCurrentUser();
         String userId = user.getUid();
 
+        taggedReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                    String key = snapshot.getKey();
+                    taggedFriendsList.add(key);
+                    Log.d(TAG2, "HERE ARE THE DATA OF THE TAGGED USERS: " + key);
+                }
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError error) {
+                Log.w(TAG, "Failed to read value.", error.toException());
+            }
+        });
+
         tripsReference.child(userId).child("userFriends").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -119,6 +143,7 @@ public class TagFriendActivity extends AppCompatActivity {
 
             }
 
+
             @Override
             public void onCancelled(DatabaseError error) {
                 // Failed to read value
@@ -133,10 +158,45 @@ public class TagFriendActivity extends AppCompatActivity {
 
                 String friendID = friendToBeTagged.getText().toString();
 
-                if (friendsList.contains(friendID))
+                if (friendsList.contains(friendID) && !(taggedFriendsList.contains(friendID)))
                 {
-                    toastMessage("FRIEND IS LOCATED IN DATABASE!");
+                    tagFriend(friendID);
+                    toastMessage("SUCCESSFULLY TAGGED " + friendID);
                 }
+                else if (friendsList.contains(friendID) && taggedFriendsList.contains(friendID))
+                {
+                    toastMessage(friendID + " already tagged!");
+                }
+                else
+                {
+                    toastMessage(friendID + " not your friend!");
+                }
+            }
+
+        });
+
+        tagMyselfButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                FirebaseUser user = mAuth.getCurrentUser();
+                String userId = user.getUid();
+
+                // String friendID = friendToBeTagged.getText().toString();
+
+                // if (friendsList.contains(userId) && !(taggedFriendsList.contains(userId)))
+                // {
+                    tagFriend(userId);
+                    toastMessage("SUCCESSFULLY TAGGED " + userId);
+                // }
+                // else if (friendsList.contains(friendID) && taggedFriendsList.contains(friendID))
+                // {
+                //     toastMessage(userId + " already tagged!");
+                // }
+                // else
+                // {
+                //     toastMessage(userId + " not your friend!");
+                // }
             }
 
         });
@@ -173,6 +233,15 @@ public class TagFriendActivity extends AppCompatActivity {
     private void addNewFriend(String userId, String friendID) {
         // User user = new User(name, email);
         myRef.child("friends").child(userId).child("userFriends").child(friendID).setValue(true);
+    }
+    private void tagFriend(String friendID) {
+        // User user = new User(name, email);
+        myRef.child("isTagged").child(friendID).setValue(true);
+    }
+    private void userIsTagged(String friendID) {
+        // User user = new User(name, email);
+        myRef.child("isTagged");
+        // child(userId).child("userFriends").child(friendID).setValue(true);
     }
 
 }

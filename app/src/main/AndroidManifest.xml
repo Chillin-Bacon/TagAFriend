@@ -42,7 +42,9 @@
         <activity android:name=".AddToDatabase" />
         <activity android:name=".AddFriendToDB" />
         <activity android:name=".GetCurrentFriends" />
-        <activity android:name=".TagFriendActivity"></activity>
+        <activity android:name=".TagFriendActivity" />
+        <activity android:name=".UnTagMeActivity" />
+        <activity android:name=".AmITaggedActivity"></activity>
     </application>
 
 </manifest>

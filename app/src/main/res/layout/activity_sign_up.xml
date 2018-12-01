@@ -15,7 +15,8 @@
             android:id="@+id/email_sign_up_form"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:padding="16dp">
 
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
@@ -26,7 +27,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ellipsize="end"
-                    android:hint="insert name"
+                    android:hint="Insert Name"
+                    android:gravity="center"
                     android:inputType="text"
                     android:maxLines="1" />
 
@@ -42,6 +44,7 @@
                     android:layout_height="wrap_content"
                     android:ellipsize="end"
                     android:hint="Insert Email"
+                    android:gravity="center"
                     android:inputType="textEmailAddress"
                     android:maxLines="1" />
 
@@ -57,6 +60,7 @@
                     android:layout_height="wrap_content"
                     android:ellipsize="end"
                     android:hint="Insert Password"
+                    android:gravity="center"
                     android:inputType="textPassword"
                     android:maxLines="1" />
 
@@ -72,6 +76,7 @@
                     android:layout_height="wrap_content"
                     android:ellipsize="end"
                     android:hint="Insert Password Confirmation"
+                    android:gravity="center"
                     android:inputType="textPassword"
                     android:maxLines="1" />
 
@@ -81,12 +86,13 @@
             <Button
                 android:id="@+id/button_sign_up"
                 style="?android:textAppearanceSmall"
+                android:background="@drawable/radius_pink"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:text="Sign Up"
                 android:onClick="signupButtonClicked"
-                android:textColor="@android:color/white"
+                android:textColor="@android:color/darker_gray"
                 android:textStyle="bold" />
 
         </LinearLayout>

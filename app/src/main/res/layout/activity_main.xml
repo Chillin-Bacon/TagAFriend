@@ -4,19 +4,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.tagafriend.MainActivity">
+    tools:context="com.tagafriend.MainActivity"
+    android:background="@drawable/login_bk_photo">
 
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/button_sign_in"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="139dp"
+        android:layout_marginStart="-3dp"
+        android:layout_marginTop="36dp"
+        android:background="@drawable/radius_darkteal"
+        android:padding="16dp"
         android:text="TagAFriend"
         android:textAllCaps="true"
-        android:textColor="@color/colorPrimary"
+        android:textColor="#fff"
         android:textSize="30sp"
         android:textStyle="bold" />
 
@@ -27,11 +31,12 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/button_sign_up"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="47dp"
+        android:layout_marginBottom="15dp"
 
+        android:background="@drawable/radius_pink"
         android:onClick="Signin"
         android:text="SIGN IN"
-        android:textColor="@color/colorPrimary" />
+        android:textColor="#fff" />
 
     <Button
         android:id="@+id/button_sign_up"
@@ -42,5 +47,6 @@
         android:layout_marginBottom="39dp"
         android:onClick="Signup"
         android:text="SIGN UP"
-        android:textColor="@color/colorPrimary" />
+        android:background="@drawable/radius_pink"
+        android:textColor="#fff" />
 </RelativeLayout>

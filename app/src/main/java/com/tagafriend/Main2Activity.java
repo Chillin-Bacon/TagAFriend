@@ -12,8 +12,8 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.gms.location.FusedLocationProviderClient;
-import com.google.android.gms.location.LocationServices;
+/*import com.google.android.gms.location.FusedLocationProviderClient;*/
+/*import com.google.android.gms.location.LocationServices;*/
 import com.google.android.gms.tasks.OnSuccessListener;
 
 import static android.Manifest.permission.ACCESS_FINE_LOCATION;
@@ -29,7 +29,7 @@ public class Main2Activity extends AppCompatActivity {
             btnUnTagFriend,
             btnAmITagged;
 
-    public FusedLocationProviderClient client;
+    /*public FusedLocationProviderClient client;*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,8 +43,8 @@ public class Main2Activity extends AppCompatActivity {
         btngetCurrentFriends = findViewById(R.id.currentFriends);
         btnTagFriend = findViewById(R.id.tagFriendButton);
         btnUnTagFriend = findViewById(R.id.untagButton);
-        btnAmITagged = findViewById(R.id.checkedIfTagged);
-        client = LocationServices.getFusedLocationProviderClient(this);
+        /*btnAmITagged = findViewById(R.id.checkedIfTagged);*/
+        /*client = LocationServices.getFusedLocationProviderClient(this);*/
         mapsActivityButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Code here executes on main thread after user presses button

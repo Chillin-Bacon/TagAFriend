@@ -33,11 +33,11 @@ public class SignUp extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
         mAuth = FirebaseAuth.getInstance();
-        nameField=(EditText)findViewById(R.id.field_name);
-        emailField=(EditText)findViewById(R.id.field_email);
-        passField=(EditText)findViewById(R.id.field_password);
-        confirmPass=(EditText)findViewById(R.id.field_password_confirmation);
-        myRef=FirebaseDatabase.getInstance().getReference().child("Users");
+        nameField= findViewById(R.id.field_name);
+        emailField= findViewById(R.id.field_email);
+        passField= findViewById(R.id.field_password);
+        confirmPass= findViewById(R.id.field_password_confirmation);
+        myRef=FirebaseDatabase.getInstance().getReference().child("users");
     }
 
     public void signupButtonClicked(View view){
@@ -56,8 +56,8 @@ public class SignUp extends AppCompatActivity {
                     if(task.isSuccessful()){
                         String user_id=mAuth.getCurrentUser().getUid();
                         DatabaseReference current_user_db= myRef.child(user_id);
-                        current_user_db.child("Name").setValue(name);
-                        current_user_db.child("image").setValue("default");
+                        current_user_db.child("name").setValue(name);
+                        current_user_db.child("email").setValue(email);
                         Intent mainIntent = new Intent(SignUp.this,SignInActivity.class);
                         mainIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         startActivity(mainIntent);

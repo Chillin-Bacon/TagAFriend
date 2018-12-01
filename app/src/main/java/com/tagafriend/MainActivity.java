@@ -18,19 +18,34 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         mSignInButton = findViewById(R.id.button_sign_in);
         mSignUpButton = findViewById(R.id.button_sign_up);
-
+        mSignInButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                // Code here executes on main thread after user presses button
+                // Intent intent=new Intent(getApplicationContext(),SignInActivity.class);
+                // startActivity(intent);
+                Intent intent=new Intent(getApplicationContext(),SignInActivity.class);
+                startActivity(intent);
+            }
+        });
+        mSignUpButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                // Code here executes on main thread after user presses button
+                Intent intent=new Intent(getApplicationContext(),SignUp.class);
+                startActivity(intent);
+            }
+        });
     }
-    public void Signin(View view)
-    {
-        Intent intent=new Intent(getApplicationContext(),SignInActivity.class);
-        startActivity(intent);
+    // public void Signin(View view)
+    // {
+    //     Intent intent=new Intent(getApplicationContext(),SignInActivity.class);
+    //     startActivity(intent);
+    //
+    // }
 
-    }
-
-    public void Signup(View view)
-    {
-        Intent intent=new Intent(getApplicationContext(),SignUp.class);
-        startActivity(intent);
-
-    }
+    // public void Signup(View view)
+    // {
+    //     Intent intent=new Intent(getApplicationContext(),SignUp.class);
+    //     startActivity(intent);
+    //
+    // }
 }

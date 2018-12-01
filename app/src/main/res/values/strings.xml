@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">TagAFriend</string>
+    <string name="title_location_permission">Permission</string>
+    <string name="text_location_permission">Please authorize the app</string>
+    <string name="ok">OK</string>
+    <string name="minimum_password">Minimum Password Must be ≥ 6 Characters</string>
+    <string name="auth_failed">Authorization Failed</string>
 </resources>
+
+    <!--.setTitle(R.string.title_location_permission)--><!--.setMessage(R.string.text_location_permission)--><!--.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener()-->

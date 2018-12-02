@@ -43,7 +43,8 @@
         android:layout_alignParentBottom="true"
         android:layout_marginStart="30dp"
         android:layout_marginBottom="202dp"
-        android:text="viewfriend" />
+        android:background="@drawable/radius_pink"
+        android:text="view friends" />
 
     <TextView
         android:id="@+id/friendListTextView"

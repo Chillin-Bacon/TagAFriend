@@ -14,15 +14,18 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="94dp"
         android:ems="10"
-        android:hint="Enter Friend Code"
+        android:hint="Enter Friend Key"
         android:inputType="textPersonName" />
 
     <Button
         android:id="@+id/addFriendButton"
-        android:layout_width="wrap_content"
+        android:layout_width="185dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="201dp"
+        android:layout_below="@id/friendCodeET"
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="85dp"
+        android:background="@drawable/radius_pink"
         android:text="Add Friend" />
+        <!--android:layout_centerHorizontal="true"-->
+        <!--android:layout_alignParentTop="true"-->
 </RelativeLayout>

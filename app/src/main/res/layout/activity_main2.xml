@@ -4,18 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.tagafriend.Main2Activity">
+    tools:context="com.tagafriend.Main2Activity"
+    android:padding="16dp">
 
 
-    <Button
-        android:id="@+id/currentFriends"
-        android:layout_width="152dp"
-        android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/optionsButton"
-        android:layout_alignTop="@+id/untagButton"
-        android:layout_marginStart="-2dp"
-        android:layout_marginTop="-134dp"
-        android:text="Current Friends" />
+
 
     <TextView
         android:id="@+id/textView"
@@ -23,72 +16,94 @@
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="30dp"
-        android:text="THIS IS GOING TO BE THE DISPLAYMAP ACTIVITY"
+        android:layout_marginBottom="20dp"
+        android:text="DISPLAYMAP ACTIVITY"
         android:textAllCaps="true"
         android:textColor="@color/colorPrimary"
         android:textSize="30sp"
         android:textStyle="bold" />
 
     <Button
-        android:id="@+id/displayMapsButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="16dp"
-        android:layout_marginBottom="346dp"
-        android:text="Display Location" />
-
-    <Button
-        android:id="@+id/optionsButton"
-        android:layout_width="161dp"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/displayMapsButton"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="0dp"
-        android:layout_marginEnd="31dp"
-        android:text="Options" />
-
-    <Button
         android:id="@+id/addFriendButton"
         android:layout_width="149dp"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/tagFriendButton"
-        android:layout_alignStart="@+id/displayMapsButton"
-        android:layout_marginStart="2dp"
-        android:layout_marginBottom="25dp"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@id/textView"
+        android:background="@drawable/radius_pink"
+        android:layout_marginBottom="7dp"
         android:text="add friend" />
+    <!--android:layout_marginStart="2dp"-->
+    <!--android:layout_marginBottom="25dp"-->
+
+    <Button
+        android:id="@+id/currentFriends"
+        android:layout_width="160dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/addFriendButton"
+        android:background="@drawable/radius_pink"
+        android:layout_marginBottom="7dp"
+        android:text="Current Friends" />
+    <!--android:layout_marginStart="-2dp"-->
+    <!--android:layout_marginTop="-134dp"-->
 
     <Button
         android:id="@+id/tagFriendButton"
         android:layout_width="155dp"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/optionsButton"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="-81dp"
-        android:layout_marginBottom="202dp"
+        android:layout_below="@id/currentFriends"
+        android:background="@drawable/radius_pink"
         android:text="tag friend" />
+    <!--android:layout_marginStart="-81dp"-->
+    <!--android:layout_marginBottom="202dp"-->
+
+    <Button
+        android:id="@+id/optionsButton"
+        android:layout_width="161dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textView"
+        android:layout_alignParentRight="true"
+        android:background="@drawable/radius_pink"
+        android:layout_marginBottom="7dp"
+        android:text="Options" />
+    <!--android:layout_marginTop="0dp"-->
+    <!--android:layout_marginEnd="31dp"-->
+
+    <Button
+        android:id="@+id/displayMapsButton"
+        android:layout_width="160dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/optionsButton"
+        android:layout_alignParentRight="true"
+        android:background="@drawable/radius_pink"
+        android:layout_marginBottom="7dp"
+        android:text="Display Location" />
+        <!--android:layout_marginStart="16dp"-->
+        <!--android:layout_marginBottom="346dp"-->
 
     <Button
         android:id="@+id/untagButton"
         android:layout_width="159dp"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/displayMapsButton"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="100dp"
-        android:layout_marginBottom="135dp"
+        android:layout_below="@id/displayMapsButton"
+        android:layout_alignParentRight="true"
+        android:background="@drawable/radius_pink"
+        android:layout_marginBottom="7dp"
         android:text="untag me" />
+        <!--android:layout_marginStart="100dp"
+        android:layout_marginBottom="135dp"-->
+
 
     <Button
         android:id="@+id/testButton"
-        android:layout_width="wrap_content"
+        android:layout_width="170dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="129dp"
-        android:layout_marginBottom="61dp"
+        android:layout_below="@id/untagButton"
+        android:layout_alignParentRight="true"
+        android:background="@drawable/radius_pink"
         android:text="ADD ITEM TO DB" />
+        <!--android:layout_marginEnd="129dp"-->
+        <!--android:layout_marginBottom="61dp"-->
+
 
 
 </RelativeLayout>

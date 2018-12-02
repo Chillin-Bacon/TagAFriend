@@ -4,14 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".OptionsActivity">
+    tools:context=".OptionsActivity"
+    android:padding="16dp">
 
     <Button
         android:id="@+id/checkedIfTaggedButton"
         android:layout_width="236dp"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
         android:layout_marginTop="38dp"
+        android:background="@drawable/radius_pink"
         android:text="check if tagged!" />
 </RelativeLayout>

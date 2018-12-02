@@ -14,24 +14,26 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="94dp"
         android:ems="10"
-        android:hint="Enter Friend Code To Tag"
+        android:hint="Enter Friend's Key To Tag"
         android:inputType="textPersonName" />
 
     <Button
         android:id="@+id/tagFriendButtonInTagActivity"
-        android:layout_width="wrap_content"
+        android:layout_width="140dp"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="201dp"
+        android:background="@drawable/radius_pink"
         android:text="Tag Friend" />
 
     <Button
         android:id="@+id/tagMyselfButton"
-        android:layout_width="wrap_content"
+        android:layout_width="140dp"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="172dp"
+        android:background="@drawable/radius_pink"
         android:text="Tag Myself" />
 </RelativeLayout>

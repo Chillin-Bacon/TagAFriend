@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:layout_marginTop="20dp"
+    android:layout_marginBottom="20dp">
 
     <Button
         android:id="@+id/addFriendToDB"
@@ -9,9 +12,11 @@
         android:layout_height="wrap_content"
         android:layout_alignStart="@+id/btnAddNewFood"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="-5dp"
-        android:layout_marginBottom="276dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/radius_teal"
         android:text="addAFriend" />
+        <!--android:layout_marginStart="-5dp"-->
+        <!--android:layout_marginBottom="276dp"-->
 
     <Button
         android:id="@+id/btnAddNewFood"
@@ -19,30 +24,34 @@
         android:layout_height="wrap_content"
         android:layout_alignStart="@+id/add_new_food"
         android:layout_alignParentTop="true"
+        android:background="@drawable/radius_pink"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="24dp"
         android:text="Button" />
+        <!--android:layout_marginTop="24dp"-->
 
     <EditText
         android:id="@+id/addFriendEditText"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="17dp"
-        android:layout_marginTop="108dp"
+        android:layout_marginStart="48dp"
+        android:layout_above="@id/addFriendToDB"
         android:ems="10"
-        android:hint="Enter Friend Code"
+        android:hint="Enter Friend Key"
         android:inputType="textPersonName" />
+    <!--android:layout_alignParentStart="true"-->
+    <!--android:layout_alignParentTop="true"-->
 
     <Button
         android:id="@+id/viewFriendsButton"
         android:layout_width="241dp"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
-        android:layout_alignParentBottom="true"
         android:layout_marginStart="30dp"
-        android:layout_marginBottom="202dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/radius_darkteal"
+        android:layout_below="@id/btnAddNewFood"
         android:text="viewfriend" />
+        <!--android:layout_marginBottom="202dp"-->
+        <!--android:layout_alignParentBottom="true"-->
 
 </RelativeLayout>

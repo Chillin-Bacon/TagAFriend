@@ -92,7 +92,6 @@
                 android:layout_marginTop="16dp"
                 android:text="Sign Up"
                 android:onClick="signupButtonClicked"
-                android:textColor="@android:color/darker_gray"
                 android:textStyle="bold" />
 
         </LinearLayout>

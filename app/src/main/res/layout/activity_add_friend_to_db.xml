@@ -23,9 +23,9 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/friendCodeET"
         android:layout_marginTop="16dp"
-        android:layout_marginLeft="85dp"
-        android:background="@drawable/radius_pink"
-        android:text="Add Friend" />
-        <!--android:layout_centerHorizontal="true"-->
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/radius_teal"
+        android:textColor="@android:color/white"
+        android:text="Add Friend"/>
         <!--android:layout_alignParentTop="true"-->
 </RelativeLayout>

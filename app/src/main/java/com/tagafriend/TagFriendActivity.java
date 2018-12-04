@@ -1,7 +1,11 @@
 package com.tagafriend;
 
+import android.content.pm.PackageManager;
+import android.location.Location;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -12,6 +16,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.location.FusedLocationProviderClient;
+import com.google.android.gms.location.LocationServices;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -48,10 +55,43 @@ public class TagFriendActivity extends AppCompatActivity {
     final ArrayList<String> friendsList = new ArrayList<> ();
     final ArrayList<String> taggedFriendsList = new ArrayList<>();
 
+    private FusedLocationProviderClient mFusedLocationClient;
+
+    private static final int MY_PERMISSION_ACCESS_COARSE_LOCATION = 11;
+
+    double userLat, userLong;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tag_friend);
+
+        mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
+
+
+        if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this, new String[]{android.Manifest.permission.ACCESS_COARSE_LOCATION}, MY_PERMISSION_ACCESS_COARSE_LOCATION);
+        }
+
+        mFusedLocationClient.getLastLocation()
+                .addOnSuccessListener(this, new OnSuccessListener<Location>() {
+                    @Override
+                    public void onSuccess(Location location) {
+                        // Got last known location. In some rare situations this can be null.
+                        if (location != null) {
+                            // Logic to handle location object
+                            // TextView latitudeTV = findViewById(R.id.tvLatitude);
+                            userLat = location.getLatitude();
+                            // String latitudeString = Double.toString(latitude);
+                            // latitudeTV.setText(latitudeString);
+
+                            // TextView longitudeTV = findViewById(R.id.tvLongitude);
+                            userLong = location.getLongitude();
+                            // startActivity(newIntent);
+                            Log.d("TagFriendsActivity", "The value of the longitude: " + userLat + userLong);
+                        }
+                    }
+                });
         //declare variables in oncreate
         tagFriendButton = (Button) findViewById(R.id.tagFriendButtonInTagActivity);
         tagMyselfButton = (Button) findViewById(R.id.tagMyselfButton);
@@ -160,7 +200,7 @@ public class TagFriendActivity extends AppCompatActivity {
 
                 if (friendsList.contains(friendID) && !(taggedFriendsList.contains(friendID)))
                 {
-                    tagFriend(friendID);
+                    tagFriend(friendID, userLat, userLong);
                     toastMessage("SUCCESSFULLY TAGGED " + friendID);
                 }
                 else if (friendsList.contains(friendID) && taggedFriendsList.contains(friendID))
@@ -186,7 +226,8 @@ public class TagFriendActivity extends AppCompatActivity {
 
                 // if (friendsList.contains(userId) && !(taggedFriendsList.contains(userId)))
                 // {
-                    tagFriend(userId);
+                tagFriend(userId, userLat, userLong);
+                toastMessage("SUCCESSFULLY TAGGED " + userId);
                     toastMessage("SUCCESSFULLY TAGGED " + userId);
                 // }
                 // else if (friendsList.contains(friendID) && taggedFriendsList.contains(friendID))
@@ -234,9 +275,14 @@ public class TagFriendActivity extends AppCompatActivity {
         // User user = new User(name, email);
         myRef.child("friends").child(userId).child("userFriends").child(friendID).setValue(true);
     }
-    private void tagFriend(String friendID) {
+    private void tagFriend(String friendID, double mUserLat, double mUserLong) {
         // User user = new User(name, email);
+        Log.d("TagFriendsActivity", "We are inside of tagFriendFunction" + mUserLat + mUserLong);
         myRef.child("isTagged").child(friendID).setValue(true);
+        myRef.child("userLat").child(friendID).setValue(mUserLat);
+        myRef.child("userLong").child(friendID).setValue(mUserLong);
+        // myRef.child("isTagged").child(friendID).setValue(mUserLat);
+        // myRef.child("isTagged").child(friendID).setValue(mUserLong);
     }
     private void userIsTagged(String friendID) {
         // User user = new User(name, email);

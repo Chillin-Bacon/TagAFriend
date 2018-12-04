@@ -93,14 +93,14 @@
         android:layout_marginBottom="135dp"-->
 
 
-    <Button
-        android:id="@+id/testButton"
-        android:layout_width="170dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/untagButton"
-        android:layout_alignParentRight="true"
-        android:background="@drawable/radius_pink"
-        android:text="ADD ITEM TO DB" />
+    <!--<Button-->
+        <!--android:id="@+id/testButton"-->
+        <!--android:layout_width="170dp"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_below="@id/untagButton"-->
+        <!--android:layout_alignParentRight="true"-->
+        <!--android:background="@drawable/radius_pink"-->
+        <!--android:text="ADD ITEM TO DB" />-->
         <!--android:layout_marginEnd="129dp"-->
         <!--android:layout_marginBottom="61dp"-->
 

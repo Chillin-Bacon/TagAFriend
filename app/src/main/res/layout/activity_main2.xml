@@ -8,8 +8,6 @@
     android:padding="16dp">
 
 
-
-
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
@@ -17,7 +15,7 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_marginBottom="20dp"
-        android:text="DISPLAYMAP ACTIVITY"
+        android:text="CHOOSE AN ACTIVITY!"
         android:textAllCaps="true"
         android:textColor="@color/colorPrimary"
         android:textSize="30sp"
